@@ -34,10 +34,10 @@ jobs:
       # ./gradlew. setup-gradle downloads, caches, and puts this exact
       # version on PATH — see the project README for why there's no
       # wrapper and how to switch back to one later if you want to.
-      - name: Set up Gradle 8.11.1
+      - name: Set up Gradle 8.13
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.11.1'
+          gradle-version: '8.13'
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4

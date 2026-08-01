@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        Baseline Material 3 theme. Custom color roles and dynamic color
+        (Material You) are Phase 3 work — left untouched here on purpose.
+    -->
+    <style name="Theme.DeacxWidget" parent="Theme.Material3.DayNight.NoActionBar" />
+</resources>

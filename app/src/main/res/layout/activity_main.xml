@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:accessibilityHeading="true"
+        android:text="@string/app_name"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+    <!-- Live preview: the actual widget layout, inflated at real scale over
+         a mock backdrop so transparent/glass content stays legible here.
+         Purely decorative next to the text field below it, so it's hidden
+         from screen readers rather than adding redundant TalkBack stops. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/preview_backdrop"
+        android:importantForAccessibility="noHideDescendants">
+
+        <include
+            android:id="@+id/widget_preview"
+            layout="@layout/widget_deacx" />
+
+    </FrameLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/display_text_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/display_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:text="@string/save_button_saved_label" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_button"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/reset_button_label" />
+
+</LinearLayout>

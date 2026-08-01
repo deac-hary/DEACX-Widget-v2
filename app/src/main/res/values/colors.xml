@@ -1,0 +1,6 @@
+<resources>
+    <color name="widget_text_primary">#FFFFFFFF</color>
+    <color name="widget_text_secondary">#CCFFFFFF</color>
+    <color name="widget_glass_fill">#14FFFFFF</color>
+    <color name="widget_glass_stroke">#26FFFFFF</color>
+</resources>

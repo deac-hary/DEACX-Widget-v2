@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DEACX Widget</string>
+    <string name="widget_description">Shows your DEACX greeting on the home screen.</string>
+    <string name="greeting_morning">Good Morning</string>
+    <string name="greeting_afternoon">Good Afternoon</string>
+    <string name="greeting_evening">Good Evening</string>
+    <string name="greeting_night">Good Night</string>
+    <string name="display_text_hint">What should be shown on the home screen?</string>
+    <string name="save_button_label">Save</string>
+    <string name="save_button_saved_label">Saved</string>
+    <string name="reset_button_label">Reset to Default</string>
+    <string name="save_error_message">Couldn\'t save — try again.</string>
+</resources>

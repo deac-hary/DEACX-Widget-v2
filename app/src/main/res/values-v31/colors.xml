@@ -1,0 +1,11 @@
+<resources>
+    <!-- system_neutral1_50 / system_neutral2_200 are the light end of the
+         wallpaper-derived tonal ramp — verified against Android's own
+         light/dark role mapping, not assumed. Glass fill/stroke are left
+         undefined here on purpose: they inherit the neutral values from
+         values/colors.xml, since alpha-blending a dynamic tone into a
+         translucent fill needs runtime color math, not plain resource
+         aliasing (see Phase 3 notes). -->
+    <color name="widget_text_primary">@android:color/system_neutral1_50</color>
+    <color name="widget_text_secondary">@android:color/system_neutral2_200</color>
+</resources>

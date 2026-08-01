@@ -1,0 +1,13 @@
+<resources>
+    <style name="Widget.Deacx.Greeting.TextAppearance" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/widget_text_primary</item>
+    </style>
+
+    <style name="Widget.Deacx.CustomText.TextAppearance" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/widget_text_primary</item>
+    </style>
+
+    <style name="Widget.Deacx.Date.TextAppearance" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/widget_text_secondary</item>
+    </style>
+</resources>

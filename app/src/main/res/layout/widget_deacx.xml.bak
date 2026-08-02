@@ -10,12 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:background="@drawable/widget_glass_panel"
         android:orientation="vertical"
         android:gravity="start|center_vertical"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp">
 
         <TextView
             android:id="@+id/widget_greeting_text"

@@ -1,13 +1,31 @@
 <resources>
+
     <style name="Widget.Deacx.Greeting.TextAppearance" parent="TextAppearance.Material3.HeadlineSmall">
         <item name="android:textColor">@color/widget_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:shadowColor">#66000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">3</item>
     </style>
 
     <style name="Widget.Deacx.CustomText.TextAppearance" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">@color/widget_text_primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:shadowColor">#66000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">3</item>
     </style>
 
     <style name="Widget.Deacx.Date.TextAppearance" parent="TextAppearance.Material3.LabelLarge">
         <item name="android:textColor">@color/widget_text_secondary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:shadowColor">#55000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1dp</item>
+        <item name="android:shadowRadius">2</item>
     </style>
+
 </resources>

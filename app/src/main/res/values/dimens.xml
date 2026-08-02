@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Spacing System (8dp Grid) -->
+    <dimen name="widget_padding_horizontal">22dp</dimen>
+    <dimen name="widget_padding_vertical">18dp</dimen>
+    <dimen name="widget_item_spacing_small">2dp</dimen>
+    <dimen name="widget_item_spacing_medium">4dp</dimen>
+    <dimen name="widget_corner_radius">24dp</dimen>
+    <dimen name="widget_stroke_width">1dp</dimen>
+
+    <!-- Typography Scale -->
+    <dimen name="widget_text_size_greeting">30sp</dimen>
+    <dimen name="widget_text_size_name">18sp</dimen>
+    <dimen name="widget_text_size_date">14sp</dimen>
+</resources>
+

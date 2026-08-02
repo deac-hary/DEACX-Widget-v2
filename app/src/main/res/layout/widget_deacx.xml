@@ -6,16 +6,17 @@
     android:background="@android:color/transparent">
 
     <!-- Glass panel floats inset from the widget's outer bounds rather than
-         filling them edge to edge — reads as a surface, not a flat tint. -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="start|center_vertical"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+         filling them edge to edge — reads as a surface, not a flat tint. -->    <LinearLayout
+        <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="start|center_vertical"
+           android:orientation="vertical"
+           android:gravity="start"
+           android:paddingStart="24dp"
+           android:paddingEnd="24dp"
+           android:paddingTop="20dp"
+           android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/widget_greeting_text"

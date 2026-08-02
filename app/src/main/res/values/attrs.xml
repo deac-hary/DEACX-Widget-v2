@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Customize Settings Attributes -->
+    <declare-styleable name="DeacxWidgetAttributes">
+        <attr name="widget_title_size" format="dimension" />
+        <attr name="widget_title_weight" format="integer" />
+        <attr name="widget_title_letter_spacing" format="float" />
+        <attr name="widget_title_font_family" format="string" />
+        
+        <attr name="widget_date_size" format="dimension" />
+        <attr name="widget_date_color" format="color" />
+    </declare-styleable>
+</resources>
+

@@ -2,10 +2,12 @@ name: Android Release
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -20,22 +22,13 @@ jobs:
           java-version: "21"
 
       - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 8.13
 
       - uses: android-actions/setup-android@v4
 
       - name: Decode keystore
         run: |
-          echo "${{ secrets.SIGNING_KEY }}" | base64 -d > release.jks
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.jks
 
-      - name: Verify keystore
-        run: |
-          keytool -list -v \
-            -keystore release.jks \
-            -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
-            -keypass "${{ secrets.KEY_PASSWORD }}" \
-            -alias "${{ secrets.KEY_ALIAS }}"
       - name: Create keystore.properties
         run: |
           echo "storeFile=release.jks" > keystore.properties
@@ -46,7 +39,10 @@ jobs:
       - name: Build Release APK
         run: gradle :app:assembleRelease --stacktrace --no-daemon
 
-      - uses: actions/upload-artifact@v4
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: app-release
-          path: app/build/outputs/apk/release/*.apk
+          tag_name: latest
+          name: DEACX Widget Latest
+          files: app/build/outputs/apk/release/app-release.apk
+          prerelease: true

@@ -29,6 +29,15 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.jks
 
+      - name: Verify keystore
+        run: |
+          ls -lh release.jks
+          keytool -list \
+            -keystore release.jks \
+            -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
+            -keypass "${{ secrets.KEY_PASSWORD }}" \
+            -alias "${{ secrets.KEY_ALIAS }}"
+
       - name: Create keystore.properties
         run: |
           echo "storeFile=release.jks" > keystore.properties

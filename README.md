@@ -87,3 +87,4 @@ moved since.
 `applicationId` / package: `com.deacx.widget` — rename via Android
 Studio's refactor tool if you'd prefer something else.
 # trigger
+

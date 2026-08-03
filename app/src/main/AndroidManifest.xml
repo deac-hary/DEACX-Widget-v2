@@ -30,6 +30,16 @@
                 android:resource="@xml/deacx_widget_info" />
         </receiver>
 
+        <receiver
+    android:name=".widget.DeacxCommandReceiver"
+    android:exported="true">
+
+    <intent-filter>
+        <action android:name="com.deacx.widget.RELOAD"/>
+    </intent-filter>
+
+</receiver>
+
     </application>
 
 </manifest>

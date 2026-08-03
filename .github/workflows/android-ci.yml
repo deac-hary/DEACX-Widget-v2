@@ -27,7 +27,7 @@ jobs:
 
       - name: Decode keystore
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.jks
+          echo "${{ secrets.SIGNING_FILE }}" | base64 -d > release.jks
 
       - name: Verify keystore
         run: |

@@ -15,7 +15,7 @@ import java.io.IOException
 
 private const val PREFERENCES_DATASTORE_NAME = "deacx_preferences"
 private val KEY_DISPLAY_TEXT = stringPreferencesKey("display_text")
-
+private val KEY_WEATHER_EMOJI = stringPreferencesKey("weather_emoji")
 /**
  * The single Context.dataStore delegate for the whole app. DataStore
  * throws if two delegates target the same file, so every consumer —
@@ -38,8 +38,14 @@ val DataStore<Preferences>.widgetPreferences: Flow<WidgetPreferences>
         .map { it.toWidgetPreferences() }
 
 fun Preferences.toWidgetPreferences(): WidgetPreferences =
-    WidgetPreferences(displayText = this[KEY_DISPLAY_TEXT] ?: "")
+    WidgetPreferences(
+        displayText = this[KEY_DISPLAY_TEXT] ?: "",
+        weatherEmoji = this[KEY_WEATHER_EMOJI] ?: ""
+    )
 
 suspend fun DataStore<Preferences>.setDisplayText(text: String) {
     edit { it[KEY_DISPLAY_TEXT] = text }
+}
+suspend fun DataStore<Preferences>.setWeatherEmoji(emoji: String) {
+    edit { it[KEY_WEATHER_EMOJI] = emoji }
 }

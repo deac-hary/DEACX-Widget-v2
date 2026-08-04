@@ -6,5 +6,6 @@ package com.deacx.widget.domain.model
  * every addition flows through PreferencesRepository automatically.
  */
 data class WidgetPreferences(
-    val displayText: String = ""
+    val displayText: String = "",
+    val weatherEmoji: String = ""
 )

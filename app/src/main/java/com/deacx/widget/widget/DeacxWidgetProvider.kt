@@ -33,6 +33,7 @@ class DeacxWidgetProvider : AppWidgetProvider() {
     pushUpdate(context, appWidgetManager, appWidgetIds)
     WidgetUpdateScheduler.scheduleNext(context)
 }
+}
 
     override fun onAppWidgetOptionsChanged(
         context: Context,

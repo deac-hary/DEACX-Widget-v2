@@ -1,5 +1,7 @@
 package com.deacx.widget.ui.main
 
+import android.Manifest
+import androidx.activity.result.contract.ActivityResultContracts
 import android.os.Bundle
 import android.transition.TransitionManager
 import androidx.activity.viewModels
@@ -29,12 +31,20 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
-
+    private val locationPermissionLauncher =
+    registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        locationPermissionLauncher.launch(
+    arrayOf(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION
+    )
+)
         val preview = binding.widgetPreview
         preview.widgetGreetingText.setText(DeacxWidgetRenderer.greetingTextRes(GreetingPeriod.current()))
         preview.widgetDateText.text = LocalDateTime.now().format(WidgetDateFormat.formatter)

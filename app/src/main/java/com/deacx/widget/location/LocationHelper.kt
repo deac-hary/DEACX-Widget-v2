@@ -6,8 +6,9 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
-import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.coroutines.resume
+import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.CancellationTokenSource
+import kotlinx.coroutines.tasks.await
 
 object LocationHelper {
 
@@ -32,27 +33,23 @@ object LocationHelper {
             return null
         }
 
-        val client = LocationServices
-            .getFusedLocationProviderClient(context)
+        val client = LocationServices.getFusedLocationProviderClient(context)
 
-        return suspendCancellableCoroutine { continuation ->
+        // Try cached location first
+        runCatching {
+            client.lastLocation.await()
+        }.getOrNull()?.let {
+            return Pair(it.latitude, it.longitude)
+        }
 
-            client.lastLocation
-                .addOnSuccessListener { location ->
-                    if (location == null) {
-                        continuation.resume(null)
-                    } else {
-                        continuation.resume(
-                            Pair(
-                                location.latitude,
-                                location.longitude
-                            )
-                        )
-                    }
-                }
-                .addOnFailureListener {
-                    continuation.resume(null)
-                }
+        // Cache is empty -> request a fresh location
+        return runCatching {
+            client.getCurrentLocation(
+                Priority.PRIORITY_BALANCED_POWER_ACCURACY,
+                CancellationTokenSource().token
+            ).await()
+        }.getOrNull()?.let {
+            Pair(it.latitude, it.longitude)
         }
     }
 }

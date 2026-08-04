@@ -1,5 +1,6 @@
 package com.deacx.widget.widget
 
+import com.deacx.widget.weather.WeatherUpdater
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
@@ -28,10 +29,10 @@ class DeacxWidgetProvider : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         runAsync(context) {
-            pushUpdate(context, appWidgetManager, appWidgetIds)
-            WidgetUpdateScheduler.scheduleNext(context)
-        }
-    }
+    WeatherUpdater.update(context)
+    pushUpdate(context, appWidgetManager, appWidgetIds)
+    WidgetUpdateScheduler.scheduleNext(context)
+}
 
     override fun onAppWidgetOptionsChanged(
         context: Context,

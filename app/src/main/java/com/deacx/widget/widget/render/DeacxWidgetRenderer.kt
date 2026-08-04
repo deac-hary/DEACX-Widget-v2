@@ -26,7 +26,9 @@ object DeacxWidgetRenderer {
         now: LocalDateTime = LocalDateTime.now(),
         availableHeightDp: Int = Int.MAX_VALUE
     ): RemoteViews {
-        val customText = context.deacxDataStore.widgetPreferences.first().displayText
+        val preferences = context.deacxDataStore.widgetPreferences.first()
+        val customText = preferences.displayText
+        val weatherEmoji = preferences.weatherEmoji
         val isCompact = availableHeightDp < COMPACT_HEIGHT_THRESHOLD_DP
 
         return RemoteViews(context.packageName, R.layout.widget_deacx).apply {
@@ -37,7 +39,19 @@ object DeacxWidgetRenderer {
                 setViewVisibility(R.id.widget_date_text, View.GONE)
             } else {
                 setViewVisibility(R.id.widget_date_text, View.VISIBLE)
-                setTextViewText(R.id.widget_date_text, now.format(WidgetDateFormat.formatter))
+                val dateText = buildString {
+   	        append(now.format(WidgetDateFormat.formatter))
+
+                if (weatherEmoji.isNotBlank()) {
+                append(" ")
+                append(weatherEmoji)
+    }
+}
+
+                setTextViewText(
+                R.id.widget_date_text,
+                dateText
+)
 
                 if (customText.isBlank()) {
                     setViewVisibility(R.id.widget_custom_text, View.GONE)

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/weather-status
   workflow_dispatch:
 
 permissions:
